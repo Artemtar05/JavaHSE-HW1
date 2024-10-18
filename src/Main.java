@@ -22,19 +22,16 @@ public class Main {
         Complex division = complex1.divide(complex2);
         System.out.println("Деление комплексных чисел: " + division.getRe() + " + " + division.getIm() + "i\n");
 
+        int rows1 = 3;
+        int cols1 = 3;
+        int rows2 = 3;
+        int cols2 = 3;
 
-        Matrix matrix1 = new Matrix(2, 2);
-        Matrix matrix2 = new Matrix(2, 2);
+        Matrix matrix1 = new Matrix(rows1, cols1);
+        Matrix matrix2 = new Matrix(rows2, cols2);
 
-        matrix1.setter(0, 0, new Complex(1, 1));
-        matrix1.setter(0, 1, new Complex(2, -1));
-        matrix1.setter(1, 0, new Complex(3, 0));
-        matrix1.setter(1, 1, new Complex(4, 2));
-
-        matrix2.setter(0, 0, new Complex(4, 2));
-        matrix2.setter(0, 1, new Complex(1, 4));
-        matrix2.setter(1, 0, new Complex(2, 4));
-        matrix2.setter(1, 1, new Complex(4, 0));
+        matrix1.fillRandom();
+        matrix2.fillRandom();
 
         System.out.println("Первая матрица:");
         printMatrix(matrix1);

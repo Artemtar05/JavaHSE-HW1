@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Matrix {
     private int rows;
     private int cols;
@@ -10,6 +12,18 @@ public class Matrix {
         this.rows = rows;
         this.cols = cols;
         matrix = new Complex[rows][cols];
+    }
+
+    public void fillRandom() {
+        Random random = new Random();
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                // Генерируем случайные значения для действительной и мнимой части
+                double re = random.nextInt(10); // от 0 до 9
+                double im = random.nextInt(10); // от 0 до 9
+                matrix[i][j] = new Complex(re, im);
+            }
+        }
     }
 
     public Complex getter(int row, int col){
@@ -25,6 +39,9 @@ public class Matrix {
     }
 
     public void setter(int row, int col, Complex value){
+        if (row >= rows || col >= cols){
+            throw new IndexOutOfBoundsException("Индексы выходят за границы матрицы");
+        }
         matrix[row][col] = value;
     }
 
